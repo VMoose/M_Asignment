@@ -41,7 +41,7 @@ namespace Tests
 
             var output = promotionA.Handle(products);
 
-            Asser.AreEqual(95.0f, output);
+            Assert.AreEqual(95.0f, output);
         }
 
 
@@ -73,7 +73,7 @@ namespace Tests
 
             var output = promotionA.Handle(products);
 
-            Asser.AreEqual(175.0f, output);
+            Assert.AreEqual(175.0f, output);
         }
 
         [Test]
@@ -104,7 +104,7 @@ namespace Tests
 
             var output = promotionA.Handle(products);
 
-            Asser.AreEqual(110.0f, output);
+            Assert.AreEqual(110.0f, output);
         }
 
         [Test]
@@ -135,7 +135,7 @@ namespace Tests
 
             var output = promotionA.Handle(products);
 
-            Asser.AreEqual(110.0f, output);
+            Assert.AreEqual(110.0f, output);
         }
 
         [Test]
@@ -166,7 +166,7 @@ namespace Tests
 
             var output = promotionA.Handle(products);
 
-            Asser.AreEqual(205.0f, output);
+            Assert.AreEqual(205.0f, output);
         }
     }
 }
