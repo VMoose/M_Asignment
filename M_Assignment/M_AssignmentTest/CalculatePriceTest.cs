@@ -1,47 +1,47 @@
 using NUnit.Framework;
 using System.Collections.Generic;
-using M_Assignment;
-
-
+using M_Assignment.Models;
+using M_Assignment.Interface.Implementation;
 
 namespace Tests
 {
     public class CalculatePriceTest
     {
-        private Promotion promotionA;
+        private PromotionA promotionA;
 
         [SetUp]
         public void Setup()
         {
-            promotionA = new Promotion();
-            promotionA.SetNext(new promotionB ()).SetNext(new promotionCD ());
+            promotionA = new PromotionA();
+            promotionA.SetNext(new PromotionB ()).SetNext(new PromotionCD ());
         }
 
         [Test]
         public void Should_calculateWithoutDiscount()
         {
-            List<Products> products = new Products(){
-                new Product 
+            List<Product> products = new List<Product>() {
+                new Product
                 {
-                    ]Sku = ProductType.A,
-                    Quantity = 1
+                    Sku = ProductType.A,
+                    Quantity =1
                 },
-                new Product 
+                new Product
                 {
-                    ]Sku = ProductType.B,
-                    Quantity = 1
+                    Sku = ProductType.B,
+                    Quantity =1
                 },
-                new Product 
+                new Product
                 {
-                    ]Sku = ProductType.C,
-                    Quantity = 0
+                    Sku = ProductType.C,
+                    Quantity =0
                 },
-                new Product 
+                new Product
                 {
-                    ]Sku = ProductType.D,
-                    Quantity = 1
+                    Sku = ProductType.D,
+                    Quantity =1
                 }
-            }
+
+            };
 
             var output = promotionA.Handle(products);
 
@@ -52,28 +52,29 @@ namespace Tests
         [Test]
         public void Should_calculateWithDiscountA()
         {
-            List<Products> products = new Products(){
-                new Product 
+            List<Product> products = new List<Product>() {
+                new Product
                 {
-                    ]Sku = ProductType.A,
-                    Quantity = 3
+                    Sku = ProductType.A,
+                    Quantity =3
                 },
-                new Product 
+                new Product
                 {
-                    ]Sku = ProductType.B,
-                    Quantity = 1
+                    Sku = ProductType.B,
+                    Quantity =1
                 },
-                new Product 
+                new Product
                 {
-                    ]Sku = ProductType.C,
-                    Quantity = 0
+                    Sku = ProductType.C,
+                    Quantity =0
                 },
-                new Product 
+                new Product
                 {
-                    ]Sku = ProductType.D,
-                    Quantity = 1
+                    Sku = ProductType.D,
+                    Quantity =1
                 }
-            }
+
+            };
 
             var output = promotionA.Handle(products);
 
@@ -83,28 +84,29 @@ namespace Tests
         [Test]
         public void Should_calculateWithDiscountB()
         {
-            List<Products> products = new Products(){
-                new Product 
+            List<Product> products = new List<Product>() {
+                new Product
                 {
-                    ]Sku = ProductType.A,
-                    Quantity = 1
+                    Sku = ProductType.A,
+                    Quantity =1
                 },
-                new Product 
+                new Product
                 {
-                    ]Sku = ProductType.B,
-                    Quantity = 2
+                    Sku = ProductType.B,
+                    Quantity =2
                 },
-                new Product 
+                new Product
                 {
-                    ]Sku = ProductType.C,
-                    Quantity = 0
+                    Sku = ProductType.C,
+                    Quantity =0
                 },
-                new Product 
+                new Product
                 {
-                    ]Sku = ProductType.D,
-                    Quantity = 1
+                    Sku = ProductType.D,
+                    Quantity =1
                 }
-            }
+
+            };
 
             var output = promotionA.Handle(products);
 
@@ -114,28 +116,29 @@ namespace Tests
         [Test]
         public void Should_calculateWithDiscountCD()
         {
-            List<Products> products = new Products(){
-                new Product 
+            List<Product> products = new List<Product>() {
+                new Product
                 {
-                    ]Sku = ProductType.A,
-                    Quantity = 1
+                    Sku = ProductType.A,
+                    Quantity =1
                 },
-                new Product 
+                new Product
                 {
-                    ]Sku = ProductType.B,
-                    Quantity = 1
+                    Sku = ProductType.B,
+                    Quantity =1
                 },
-                new Product 
+                new Product
                 {
-                    ]Sku = ProductType.C,
-                    Quantity = 1
+                    Sku = ProductType.C,
+                    Quantity =1
                 },
-                new Product 
+                new Product
                 {
-                    ]Sku = ProductType.D,
-                    Quantity = 1
+                    Sku = ProductType.D,
+                    Quantity =1
                 }
-            }
+
+            };
 
             var output = promotionA.Handle(products);
 
@@ -145,28 +148,29 @@ namespace Tests
         [Test]
         public void Should_calculateWithDiscountABCD()
         {
-            List<Products> products = new Products(){
-                new Product 
+            List<Product> products = new List<Product>() {
+                new Product
                 {
-                    ]Sku = ProductType.A,
-                    Quantity = 3
+                    Sku = ProductType.A,
+                    Quantity =3
                 },
-                new Product 
+                new Product
                 {
-                    ]Sku = ProductType.B,
-                    Quantity = 2
+                    Sku = ProductType.B,
+                    Quantity =2
                 },
-                new Product 
+                new Product
                 {
-                    ]Sku = ProductType.C,
-                    Quantity = 1
+                    Sku = ProductType.C,
+                    Quantity =1
                 },
-                new Product 
+                new Product
                 {
-                    ]Sku = ProductType.D,
-                    Quantity = 1
+                    Sku = ProductType.D,
+                    Quantity =1
                 }
-            }
+
+            };
 
             var output = promotionA.Handle(products);
 

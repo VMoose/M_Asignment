@@ -35,7 +35,7 @@ namespace M_Assignment
            }
 
            PromotionA promotionA = new PromotionA();
-           promotionA.SetNext(new promotionB ()).SetNext(new promotionCD ());
+           promotionA.SetNext(new PromotionB()).SetNext(new PromotionCD());
 
            Console.WriteLine("Total Price of the cart: ", promotionA.Handle(products));
            Console.ReadKey();
