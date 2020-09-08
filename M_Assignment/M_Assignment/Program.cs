@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using M_Assignment.Models;
+using M_Assignment.Interface.Implementation;
 using System.Threading.Tasks;
 
 namespace M_Assignment
@@ -10,12 +12,33 @@ namespace M_Assignment
     {
         static void Main(string[] args)
         {
-            // The code provided will print ‘Hello World’ to the console.
-            // Press Ctrl+F5 (or go to Debug > Start Without Debugging) to run your app.
-            Console.WriteLine("Hello World!");
-            Console.ReadKey();
+           List<Product> products = new List<Product>();
 
-            // Go to http://aka.ms/dotnet-get-started-console to continue learning how to build a console app! 
+           foreach(ProductType productT in Enum.GetValues(typeof(ProductType))){
+               Console.WriteLine("Please enter the quantity for product type " + productT);
+               bool isInvalid = true;
+               int quantity =0;
+               while(isInvalid){
+                   string input = Console.ReadLine();
+                   if(int.TryParse(input, out quantity)){
+                       isInvalid = false;
+                   }
+                    else
+                        Console.WriteLine("Not and integer, please try again.");
+               }
+
+               Product product = new Product();
+               product.Sku = productT;
+               product.Quantity = quantity;
+
+               products.Add(product);
+           }
+
+           PromotionA promotionA = new PromotionA();
+           promotionA.SetNext(new promotionB ()).SetNext(new promotionCD ());
+
+           Console.WriteLine("Total Price of the cart: ", promotionA.Handle(products));
+           Console.ReadKey();
         }
     }
 }
